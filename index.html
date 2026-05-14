@@ -221,6 +221,23 @@
             margin-top: 60px;
             font-size: 14px;
         }
+  .profile-section {
+    position: relative;
+    text-align: center;
+}
+.profile-banner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1; /* Yeh peche rahe ga */
+}
+.profile-img {
+    position: relative;
+    z-index: 2; /* Yeh pic upar/aage show hogi */
+    border-radius: 50%; /* Agar round karni ho */
+}
+
     </style>
 </head>
 <body>
@@ -229,8 +246,11 @@
 
           <!-- ----- PROFILE SECTION WITH FIXED IMAGE PATH ----- -->
         <div class="profile-section">
+        <div class="profile-banner">
+    <img src="my_profile_logo.jpg" alt="Banner">
+</div>
             <!-- Direct folder ki profile picture ko link kiya hai -->
-            <img src="my_profile_logo.jpg" alt="Kamran Akhtar Logo" class="profile-logo">
+            <img src="porfile.png" alt="Profile Picture">
             <h1>Kamran Akhtar</h1>
             <p>Graphic Designer | MS Office Expert</p>
         </div>
