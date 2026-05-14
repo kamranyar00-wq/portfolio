@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kamran Akhtar | Professional Portfolio</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-color: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent-color: #38bdf8;
+            --accent-hover: #0ea5e9;
+        }
+
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color);
+            margin: 0; 
+            padding: 0; 
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* ----- PROFILE AREA ----- */
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 20px;
+        }
+
+        .profile-logo {
+            width: 100%;
+            max-width: 320px;
+            height: auto;
+            border-radius: 12px;
+            object-fit: contain;
+            background-color: #ffffff;
+            border: 3px solid var(--accent-color);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
+            margin: 0 auto 25px;
+            display: block;
+            padding: 10px;
+        }
+
+        .profile-section h1 {
+            font-size: 38px;
+            margin: 10px 0 5px;
+            color: var(--text-color);
+            letter-spacing: 0.5px;
+        }
+
+        .profile-section p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin: 0 0 30px;
+            font-weight: 500;
+        }
+
+        .profile-section h1 {
+            font-size: 38px;
+            margin: 10px 0 5px;
+            color: var(--text-color);
+        }
+
+        .profile-section p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin: 0 0 20px;
+        }
+
+        /* ----- ABOUT ME & SERVICES STYLE ----- */
+        .about-box {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            text-align: left;
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .about-box h3 {
+            color: var(--accent-color);
+            margin-top: 0;
+            font-size: 22px;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 10px;
+        }
+
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .services-list li {
+            background: #0f172a;
+            padding: 10px 15px;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-color);
+            font-size: 14px;
+        }
+
+        /* ----- ACTION BUTTONS SECTION ----- */
+        .contact-action-buttons, .freelance-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 15px;
+            min-width: 180px;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px -3px rgba(0,0,0,0.4);
+        }
+
+        .btn-phone { background-color: #0284c7; }
+        .btn-email { background-color: #ea580c; }
+        .btn-fiverr { background-color: #1dbf73; }
+        .btn-upwork { background-color: #14a800; }
+        .btn-linkedin { background-color: #0077b5; }
+
+        /* ----- PORTFOLIO GRID & CARDS ----- */
+        h2 { 
+            font-size: 24px;
+            border-left: 4px solid var(--accent-color); 
+            padding-left: 15px; 
+            margin-top: 50px; 
+            color: var(--text-color);
+        }
+
+        .portfolio-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); 
+            gap: 25px; 
+            margin-top: 25px; 
+        }
+
+        .portfolio-item { 
+            background: var(--card-bg); 
+            padding: 15px; 
+            border-radius: 12px; 
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .portfolio-item:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.25);
+        }
+
+        .portfolio-item img { 
+            max-width: 100%; 
+            height: auto; 
+            border-radius: 8px; 
+            display: block; 
+            margin: 0 auto 15px; 
+        }
+
+        .portfolio-item p { 
+            margin: 0 0 10px 0; 
+            font-size: 14px; 
+            color: var(--text-color); 
+            font-weight: 500; 
+        }
+
+        .file-link {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #0f172a;
+            padding: 8px 12px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 12px;
+            margin-top: auto;
+            transition: background 0.3s;
+        }
+
+        .file-link:hover {
+            background-color: var(--accent-hover);
+        }
+
+        /* ----- FOOTER ----- */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--card-bg);
+            margin-top: 60px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+          <!-- ----- PROFILE SECTION WITH FIXED IMAGE PATH ----- -->
+        <div class="profile-section">
+            <!-- Direct folder ki profile picture ko link kiya hai -->
+            <img src="my_profile_logo.jpg" alt="Kamran Akhtar Logo" class="profile-logo">
+            <h1>Kamran Akhtar</h1>
+            <p>Graphic Designer | MS Office Expert</p>
+        </div>
+
+        <!-- ----- ABOUT ME SECTION ----- -->
+        <div class="about-box">
+            <h3>About Me</h3>
+            <p>Hi there! I'm Kamran Akhtar, your one-stop solution for creative design and professional documentation. As a passionate graphic designer, I bring your brand's vision to life with unique and impactful visuals. I specialize in crafting beautiful invitation cards for your special moments and modern resumes that get you hired. Need precision? I’m also an expert in MS Office—handling everything from complex data in Excel to professional layouts in Word. I can also create AI videos and photos for YouTube, Instagram, and for your social media accounts & also hold specialization in content writing, article writing, and assignment work.</p>
+            <p>Let’s work together to make your project stand out!</p>
+            
+            <h3>My Core Services</h3>
+            <ul class="services-list">
+                <li>🎨 Graphic Designing & Logo Designing</li>
+                <li>📝 Assignment Work, Article & Content Writing</li>
+                <li>🤖 AI Videos & Image Creation</li>
+                <li>📺 YouTube Thumbnails</li>
+                <li>💌 Birthday, Wedding & Festival Invitation Cards</li>
+                <li>📅 Planners & Editable Templates</li>
+                <li>📄 High-Quality Resumes & Branded Proposals</li>
+                <li>📊 Data Entry, Analytics & Excel Dashboards</li>
+                <li>📑 Budget Sheets & Reconciliation Work</li>
+                <li>💻 Professional Powerpoint Presentations</li>
+                <li>📱 Social Media Management & Page Publishing</li>
+                <li>🌐 Custom Portfolio & Business Websites</li>
+            </ul>
+        </div>
+
+        <!-- ----- PHONE & EMAIL ACTION BUTTONS ----- -->
+        <div class="contact-action-buttons">
+            <a href="tel:03207339778" class="btn btn-phone">📞 0320-7339778</a>
+            <a href="mailto:kamranyar00@gmail.com" class="btn btn-email">✉️ Email Me</a>
+        </div>
+
+        <!-- ----- FREELANCING PLATFORMS BUTTONS ----- -->
+        <div class="freelance-buttons">
+            <a href="fiverr.com" target="_blank" class="btn btn-fiverr">Fiverr Profile</a>
+            <a href="upwork.com" target="_blank" class="btn btn-upwork">Upwork Profile</a>
+            <a href="linkedin.com" target="_blank" class="btn btn-linkedin">LinkedIn Connect</a>
+        </div>
+
+        <!-- ----- 1. Content Writer Section (Fixed All 7 PDFs) ----- -->
+        <h2>Content Writer, Articles & Assignments</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item">
+                <img src="images/Content writer,Artical,Assignment/content1.png.png" alt="Content 1">
+                <p>Content Image 1</p>
+            </div>
+            <div class="portfolio-item">
+                <img src="images/Content writer,Artical,Assignment/content2.png.png" alt="Content 2">
+                <p>Content Image 2</p>
+            </div>
+            <!-- Yahan se aap ki 7 PDFs shuru hoti hain jinki exact double extension match kar di hai -->
+            <div class="portfolio-item"><p>📄 Report 1 Document</p><a href="images/Content writer,Artical,Assignment/report1.pdf.pdf" target="_blank" class="file-link">Open PDF File</a></div>
+            <div class="portfolio-item"><p>📄 Report 2 Document</p><a href="images/Content writer,Artical,Assignment/report2.pdf.pdf" target="_blank" class="file-link">Open PDF File</a></div>
+            <div class="portfolio-item"><p>📄 Report 3 Document</p><a href="images/Content writer,Artical,Assignment/report3.pdf.pdf" target="_blank" class="file-link">Open PDF File</a></div>
+            <div class="portfolio-item"><p>📄 Report 4 Document</p><a href="images/Content writer,Artical,Assignment/report4.pdf.pdf" target="_blank" class="file-link">Open PDF File</a></div>
+            <div class="portfolio-item"><p>📄 Report 5 Document</p><a href="images/Content writer,Artical,Assignment/report5.pdf.pdf" target="_blank" class="file-link">Open PDF File</a></div>
+            <div class="portfolio-item"><p>📄 Report 6 Document</p><a href="images/Content writer,Artical,Assignment/report6.pdf.pdf" target="_blank" class="file-link">Open PDF File</a></div>
+            <div class="portfolio-item"><p>📄 Report 7 Document</p><a href="images/Content writer,Artical,Assignment/report7.pdf.pdf" target="_blank" class="file-link">Open PDF File</a></div>
+        </div>
+
+          <!-- 2. Excel Sheets & Projects Section (Complete Scan Code) -->
+    <h2>Excel Sheets & Projects</h2>
+    <div class="portfolio-grid">
+        <!-- Tasaveer (Images 1 se 18 tak exact extensions ke sath) -->
+        <div class="portfolio-item"><img src="images/excel/content1.png.png" alt="Excel Image 1"><p>Excel Image 1</p></div>
+        <div class="portfolio-item"><img src="images/excel/content2.jpg.jpg" alt="Excel Image 2"><p>Excel Image 2</p></div>
+        <div class="portfolio-item"><img src="images/excel/content3.png.png" alt="Excel Image 3"><p>Excel Image 3</p></div>
+        <div class="portfolio-item"><img src="images/excel/content4.png.png" alt="Excel Image 4"><p>Excel Image 4</p></div>
+        <div class="portfolio-item"><img src="images/excel/content5.jpg.jpeg" alt="Excel Image 5"><p>Excel Image 5</p></div>
+        <div class="portfolio-item"><img src="images/excel/content6.jpg.png" alt="Excel Image 6"><p>Excel Image 6</p></div>
+        <div class="portfolio-item"><img src="images/excel/content7.jpg.png" alt="Excel Image 7"><p>Excel Image 7</p></div>
+        <div class="portfolio-item"><img src="images/excel/content8.jpg.jpg" alt="Excel Image 8"><p>Excel Image 8</p></div>
+        <div class="portfolio-item"><img src="images/excel/content9.jpg.jpg" alt="Excel Image 9"><p>Excel Image 9</p></div>
+        <div class="portfolio-item"><img src="images/excel/content10.jpg.png" alt="Excel Image 10"><p>Excel Image 10</p></div>
+        <div class="portfolio-item"><img src="images/excel/content11.jpg.png" alt="Excel Image 11"><p>Excel Image 11</p></div>
+        <div class="portfolio-item"><img src="images/excel/content12.jpg.png" alt="Excel Image 12"><p>Excel Image 12</p></div>
+        <div class="portfolio-item"><img src="images/excel/content13.jpg.jpg" alt="Excel Image 13"><p>Excel Image 13</p></div>
+        <div class="portfolio-item"><img src="images/excel/content14.jpg.jpg" alt="Excel Image 14"><p>Excel Image 14</p></div>
+        <div class="portfolio-item"><img src="images/excel/content15.jpg.png" alt="Excel Image 15"><p>Excel Image 15</p></div>
+        <div class="portfolio-item"><img src="images/excel/content16.jpg.jpeg" alt="Excel Image 16"><p>Excel Image 16</p></div>
+        <div class="portfolio-item"><img src="images/excel/content17.jpg.jpeg" alt="Excel Image 17"><p>Excel Image 17</p></div>
+        <div class="portfolio-item"><img src="images/excel/content18.jpg.jpeg" alt="Excel Image 18"><p>Excel Image 18</p></div>
+        <div class="portfolio-item"><img src="images/excel/content19.jpg.jpeg" alt="Excel Image 19"><p>Excel Image 19</p></div>
+        <!-- Excel Workbook Files (excel1 se excel24 tak double extension matching) -->
+       
+        <div class="portfolio-item"><p>Excel Project 2</p><a href="images/excel/excel2.xlsx.xlsx" class="file-link">Download Workbook 2</a></div>
+        <div class="portfolio-item"><p>Excel Project 3</p><a href="images/excel/excel3.xlsx.xlsx" class="file-link">Download Workbook 3</a></div>
+        <div class="portfolio-item"><p>Excel Project 4</p><a href="images/excel/excel4.xlsx.xlsx" class="file-link">Download Workbook 4</a></div>
+        <div class="portfolio-item"><p>Excel Project 5</p><a href="images/excel/excel5.xlsx.xlsx" class="file-link">Download Workbook 5</a></div>
+        <div class="portfolio-item"><p>Excel Project 6</p><a href="images/excel/excel6.xlsx.xlsx" class="file-link">Download Workbook 6</a></div>
+        <div class="portfolio-item"><p>Excel Project 7</p><a href="images/excel/excel7.xlsx.xlsx" class="file-link">Download Workbook 7</a></div>
+        <div class="portfolio-item"><p>Excel Project 8</p><a href="images/excel/excel8.xlsx.xlsx" class="file-link">Download Workbook 8</a></div>
+        <div class="portfolio-item"><p>Excel Project 9</p><a href="images/excel/excel9.xlsx.xlsx" class="file-link">Download Workbook 9</a></div>
+        <div class="portfolio-item"><p>Excel Project 10</p><a href="images/excel/excel10.xlsx.xlsx" class="file-link">Download Workbook 10</a></div>
+        <div class="portfolio-item"><p>Excel Project 11</p><a href="images/excel/excel11.xlsx.xlsx" class="file-link">Download Workbook 11</a></div>
+        <div class="portfolio-item"><p>Excel Project 12</p><a href="images/excel/excel12.xlsx.xlsx" class="file-link">Download Workbook 12</a></div>
+        <div class="portfolio-item"><p>Excel Project 13</p><a href="images/excel/excel13.xlsx.xlsx" class="file-link">Download Workbook 13</a></div>
+        <div class="portfolio-item"><p>Excel Project 14</p><a href="images/excel/excel14.xlsx.xlsx" class="file-link">Download Workbook 14</a></div>
+        <div class="portfolio-item"><p>Excel Project 15</p><a href="images/excel/excel15.xlsx.xlsx" class="file-link">Download Workbook 15</a></div>
+        <div class="portfolio-item"><p>Excel Project 16</p><a href="images/excel/excel16.xlsx.xlsx" class="file-link">Download Workbook 16</a></div>
+        <div class="portfolio-item"><p>Excel Project 17</p><a href="images/excel/excel17.xlsx.xlsx" class="file-link">Download Workbook 17</a></div>
+        <div class="portfolio-item"><p>Excel Project 18</p><a href="images/excel/excel18.xlsx.xlsx" class="file-link">Download Workbook 18</a></div>
+        <div class="portfolio-item"><p>Excel Project 19</p><a href="images/excel/excel19.xlsx.xlsx" class="file-link">Download Workbook 19</a></div>
+        <div class="portfolio-item"><p>Excel Project 20</p><a href="images/excel/excel20.xlsx.xlsx" class="file-link">Download Workbook 20</a></div>
+        <div class="portfolio-item"><p>Excel Project 21</p><a href="images/excel/excel21.xlsx.xlsx" class="file-link">Download Workbook 21</a></div>
+        <div class="portfolio-item"><p>Excel Project 22</p><a href="images/excel/excel22.xlsx.xlsx" class="file-link">Download Workbook 22</a></div>
+        <div class="portfolio-item"><p>Excel Project 23</p><a href="images/excel/excel23.xlsx.xlsx" class="file-link">Download Workbook 23</a></div>
+        <div class="portfolio-item"><p>Excel Project 24</p><a href="images/excel/excel24.xlsx.xlsx" class="file-link">Download Workbook 24</a></div>
+
+        <!-- PowerPoint Presentation File -->
+        <div class="portfolio-item">
+            <p>PowerPoint Work</p>
+            <a href="images/excel/presentation1.pptx.pptx" class="file-link">Download Presentation (.pptx)</a>
+        </div>
+
+        <!-- PDF Documents (report1 se report5 tak double extension fixed) -->
+        <div class="portfolio-item"><p>Excel Document Report 1</p><a href="images/excel/report1.pdf.pdf" target="_blank" class="file-link">Open Report 1 (PDF)</a></div>
+        <div class="portfolio-item"><p>Excel Document Report 2</p><a href="images/excel/report2.pdf.pdf" target="_blank" class="file-link">Open Report 2 (PDF)</a></div>
+        <div class="portfolio-item"><p>Excel Document Report 3</p><a href="images/excel/report3.pdf.pdf" target="_blank" class="file-link">Open Report 3 (PDF)</a></div>
+        <div class="portfolio-item"><p>Excel Document Report 4</p><a href="images/excel/report4.pdf.pdf" target="_blank" class="file-link">Open Report 4 (PDF)</a></div>
+        <div class="portfolio-item"><p>Excel Document Report 5</p><a href="images/excel/report5.pdf.pdf" target="_blank" class="file-link">Open Report 5 (PDF)</a></div>
+    </div>
+
+
+
+        <!-- ----- 3. Logo Section ----- -->
+        <h2>Logo Designs</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item"><img src="images/logo/content1.jpg.png" alt="Logo 1"><p>Logo 1</p></div>
+            <div class="portfolio-item"><img src="images/logo/content2.jpg.jpeg" alt="Logo 2"><p>Logo 2</p></div>
+            <div class="portfolio-item"><img src="images/logo/content3.jpg.jpg" alt="Logo 3"><p>Logo 3</p></div>
+            <div class="portfolio-item"><img src="images/logo/content4.jpg.jpeg" alt="Logo 4"><p>Logo 4</p></div>
+            <div class="portfolio-item"><img src="images/logo/content5.jpg.jpg" alt="Logo 5"><p>Logo 5</p></div>
+            <div class="portfolio-item"><img src="images/logo/content6.jpg.png" alt="Logo 6"><p>Logo 6</p></div>
+            <div class="portfolio-item"><img src="images/logo/content7.jpg.jpeg" alt="Logo 7"><p>Logo 7</p></div>
+            <div class="portfolio-item"><img src="images/logo/content8.jpg.jpeg" alt="Logo 8"><p>Logo 8</p></div>
+            <div class="portfolio-item"><img src="images/logo/content9.jpg.jpeg" alt="Logo 9"><p>Logo 9</p></div>
+            <div class="portfolio-item"><img src="images/logo/content10.jpg.jpeg" alt="Logo 10"><p>Logo 10</p></div>
+            <div class="portfolio-item"><img src="images/logo/content11.jpg.jpeg" alt="Logo 11"><p>Logo 11</p></div>
+            <div class="portfolio-item"><img src="images/logo/content12.jpg.png" alt="Logo 12"><p>Logo 12</p></div>
+            <div class="portfolio-item"><img src="images/logo/content13.jpg.png" alt="Logo 13"><p>Logo 13</p></div>
+            <div class="portfolio-item"><img src="images/logo/content14.jpg.jpeg" alt="Logo 14"><p>Logo 14</p></div>
+            <div class="portfolio-item"><img src="images/logo/content15.jpg.jpeg" alt="Logo 15"><p>Logo 15</p></div>
+            <div class="portfolio-item"><img src="images/logo/content16.jpg.png" alt="Logo 16"><p>Logo 16</p></div>
+            <div class="portfolio-item"><img src="images/logo/content17.jpg.jpeg" alt="Logo 17"><p>Logo 17</p></div>
+             <div class="portfolio-item"><img src="images/logo/content18.jpg.jpg" alt="Logo 18"><p>Logo 18</p></div>
+            <div class="portfolio-item"><img src="images/logo/content19.jpg.png" alt="Logo 19"><p>Logo 19</p></div>
+            <div class="portfolio-item"><img src="images/logo/content20.jpg.png" alt="Logo 20"><p>Logo 20</p></div>
+            <div class="portfolio-item"><img src="images/logo/content21.jpg.png" alt="Logo 21"><p>Logo 21</p></div>
+        </div>
+
+        <!-- ----- 4. Mockups Section ----- -->
+        <h2>Product Mockups</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item"><img src="images/mockups/content1.jpg.png" alt="Mockup 1"><p>Mockup 1</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content2.jpg.png" alt="Mockup 2"><p>Mockup 2</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content3.jpg.png" alt="Mockup 3"><p>Mockup 3</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content4.jpg.png" alt="Mockup 4"><p>Mockup 4</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content5.jpg.png" alt="Mockup 5"><p>Mockup 5</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content6.jpg.jpeg" alt="Mockup 6"><p>Mockup 6</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content7.jpg.jpeg" alt="Mockup 7"><p>Mockup 7</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content8.jpg.jpeg" alt="Mockup 8"><p>Mockup 8</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content9.jpg.jpeg" alt="Mockup 9"><p>Mockup 9</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content10.jpg.png" alt="Mockup 10"><p>Mockup 10</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content11.jpg.png" alt="Mockup 11"><p>Mockup 11</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content12.jpg.png" alt="Mockup 12"><p>Mockup 12</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content13.jpg.jpeg" alt="Mockup 13"><p>Mockup 13</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content14.jpg.jpeg" alt="Mockup 14"><p>Mockup 14</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content15.jpg.jpeg" alt="Mockup 15"><p>Mockup 15</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content16.jpg.jpeg" alt="Mockup 16"><p>Mockup 16</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content17.jpg.jpg" alt="Mockup 17"><p>Mockup 17</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content18.jpg.png" alt="Mockup 18"><p>Mockup 18</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content19.jpg.png" alt="Mockup 19"><p>Mockup 19</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content20.jpg.png" alt="Mockup 20"><p>Mockup 20</p></div>
+            <div class="portfolio-item"><img src="images/mockups/content21.jpg.png" alt="Mockup 21"><p>Mockup 21</p></div>
+        </div>
+
+        <!-- ----- 5. Posters Section ----- -->
+        <h2>Poster Designs</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item"><img src="images/posters/content1.jpg.png" alt="Poster 1"><p>Poster 1</p></div>
+            <div class="portfolio-item"><img src="images/posters/content2.jpg.png" alt="Poster 2"><p>Poster 2</p></div>
+            <div class="portfolio-item"><img src="images/posters/content3.jpg.png" alt="Poster 3"><p>Poster 3</p></div>
+            <div class="portfolio-item"><img src="images/posters/content4.jpg.png" alt="Poster 4"><p>Poster 4</p></div>
+            <div class="portfolio-item"><img src="images/posters/content5.jpg.png" alt="Poster 5"><p>Poster 5</p></div>
+            <div class="portfolio-item"><img src="images/posters/content6.jpg.png" alt="Poster 6"><p>Poster 6</p></div>
+            <div class="portfolio-item"><img src="images/posters/content7.jpg.png" alt="Poster 7"><p>Poster 7</p></div>
+            <div class="portfolio-item"><img src="images/posters/content8.jpg.jpg" alt="Poster 8"><p>Poster 8</p></div>
+            <div class="portfolio-item"><img src="images/posters/content9.jpg.png" alt="Poster 9"><p>Poster 9</p></div>
+            <div class="portfolio-item"><img src="images/posters/content10.jpg.png" alt="Poster 10"><p>Poster 10</p></div>
+            <div class="portfolio-item"><img src="images/posters/content11.jpg.png" alt="Poster 11"><p>Poster 11</p></div>
+            <div class="portfolio-item"><img src="images/posters/content12.jpg.png" alt="Poster 12"><p>Poster 12</p></div>
+            <div class="portfolio-item"><img src="images/posters/content13.jpg.jpeg" alt="Poster 13"><p>Poster 13</p></div>
+            <div class="portfolio-item"><img src="images/posters/content14.jpg.jpeg" alt="Poster 14"><p>Poster 14</p></div>
+            <div class="portfolio-item"><img src="images/posters/content15.jpg.jpeg" alt="Poster 15"><p>Poster 15</p></div>
+            <div class="portfolio-item"><img src="images/posters/content16.jpg.jpg" alt="Poster 16"><p>Poster 16</p></div>
+            <div class="portfolio-item"><img src="images/posters/content17.jpg.png" alt="Poster 17"><p>Poster 17</p></div>
+             <div class="portfolio-item"><img src="images/posters/content18.jpg.png" alt="Poster 18"><p>Poster 18</p></div>
+              <div class="portfolio-item"><img src="images/posters/content19.jpg.png" alt="Poster 19"><p>Poster 19</p></div>
+             <div class="portfolio-item"><img src="images/posters/content20.jpg.png" alt="Poster 20"><p>Poster 20</p></div>
+              <div class="portfolio-item"><p>📄 Resume.pdf.pdf Document</p><a href="images/Posters/resume.pdf.pdf" target="_blank" class="file-link">Open PDF File</a></div>
+        </div>
+  <!-- ----- 6. Social Media Section ----- -->
+        <h2>Social Media Posts</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item"><img src="images/social-media/content1.jpg.png" alt="Social Media 1"><p>Post 1</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content2.jpg.png" alt="Social Media 2"><p>Post 2</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content3.jpg.png" alt="Social Media 3"><p>Post 3</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content4.jpg.png" alt="Social Media 4"><p>Post 4</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content5.jpg.png" alt="Social Media 5"><p>Post 5</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content6.jpg.png" alt="Social Media 6"><p>Post 6</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content7.jpg.png" alt="Social Media 7"><p>Post 7</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content8.jpg.png" alt="Social Media 8"><p>Post 8</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content9.jpg.png" alt="Social Media 9"><p>Post 9</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content10.jpg.jpeg" alt="Social Media 10"><p>Post 10</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content11.jpg.jpeg" alt="Social Media 11"><p>Post 11</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content12.jpg.jpeg" alt="Social Media 12"><p>Post 12</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content13.jpg.jpeg" alt="Social Media 13"><p>Post 13</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content14.jpg.jpg" alt="Social Media 14"><p>Post 14</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content15.jpg.jpeg" alt="Social Media 15"><p>Post 15</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content16.jpg.png" alt="Social Media 16"><p>Post 16</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content17.jpg.png" alt="Social Media 17"><p>Post 17</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content18.jpg.png" alt="Social Media 18"><p>Post 18</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content19.jpg.png" alt="Social Media 19"><p>Post 19</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content20.jpg.png" alt="Social Media 20"><p>Post 20</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content21.jpg.jpg" alt="Social Media 21"><p>Post 21</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content22.jpg.jpg" alt="Social Media 22"><p>Post 22</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content23.jpg.png" alt="Social Media 23"><p>Post 23</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content24.jpg.png" alt="Social Media 24"><p>Post 24</p></div>
+            <div class="portfolio-item"><img src="images/social-media/content25.jpg.jpg" alt="Social Media 25"><p>Post 25</p></div>
+        </div>
+
+        <!-- ----- 7. Thumbnails Section ----- -->
+        <h2>YouTube Thumbnails</h2>
+        <div class="portfolio-grid">
+            <div class="portfolio-item"><img src="images/thumbnails/content1.jpg.png" alt="Thumbnail 1"><p>Thumbnail 1</p></div>
+            <div class="portfolio-item"><img src="images/thumbnails/content2.jpg.jpg" alt="Thumbnail 2"><p>Thumbnail 2</p></div>
+            <div class="portfolio-item"><img src="images/thumbnails/content3.jpg.png" alt="Thumbnail 3"><p>Thumbnail 3</p></div>
+            <div class="portfolio-item"><img src="images/thumbnails/content4.jpg.png" alt="Thumbnail 4"><p>Thumbnail 4</p></div>
+            <div class="portfolio-item"><img src="images/thumbnails/content5.jpg.png" alt="Thumbnail 5"><p>Thumbnail 5</p></div>
+            <div class="portfolio-item"><img src="images/thumbnails/content6.jpg.png" alt="Thumbnail 6"><p>Thumbnail 6</p></div>
+            <div class="portfolio-item"><img src="images/thumbnails/content7.jpg.png" alt="Thumbnail 7"><p>Thumbnail 7</p></div>
+            <div class="portfolio-item"><img src="images/thumbnails/content8.jpg.jpeg" alt="Thumbnail 8"><p>Thumbnail 8</p></div>
+            <div class="portfolio-item"><img src="images/thumbnails/content9.jpg.png" alt="Thumbnail 9"><p>Thumbnail 9</p></div>
+            <div class="portfolio-item"><img src="images/thumbnails/content10.jpg.png" alt="Thumbnail 10"><p>Thumbnail 10</p></div>
+            <div class="portfolio-item"><img src="images/thumbnails/content11.jpg.png" alt="Thumbnail 11"><p>Thumbnail 11</p></div>
+            <div class="portfolio-item"><img src="images/thumbnails/content12.jpg.png" alt="Thumbnail 12"><p>Thumbnail 12</p></div>
+            <div class="portfolio-item"><img src="images/thumbnails/content13.jpg.jpg" alt="Thumbnail 13"><p>Thumbnail 13</p></div>
+           
+</div>
+
+    <!-- ----- FOOTER SECTION ----- -->
+    <footer>
+        <p>&copy; 2026 Kamran Akhtar. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
