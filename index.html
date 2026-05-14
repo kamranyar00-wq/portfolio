@@ -222,32 +222,35 @@
             font-size: 14px;
         }
  .profile-section {
-    position: relative;
-    text-align: center;
-    padding-top: 150px; /* Logo ke hisab se space */
+    position: relative !important;
+    text-align: center !important;
+    padding-top: 180px !important; /* Tasveer ko niche lane ke liye space */
+    min-height: 400px !important; /* Section ki unchai */
 }
 
-.profile-banner {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 250px; /* Logo ka size */
-    height: auto;
-    z-index: 1; /* Is se logo peche chala jaye ga */
-    opacity: 0.3; /* Agar logo thoda halka/faint karna ho */
+/* Background Logo ki setting */
+img.profile-banner {
+    position: absolute !important;
+    top: 10px !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    width: 300px !important; /* Logo ka size normal karne ke liye */
+    height: auto !important;
+    max-width: 100% !important;
+    z-index: 1 !important; /* Yeh lazmi peche rahe ga */
+    opacity: 0.25 !important; /* Is se logo thoda faint/halka ho jaye ga */
 }
 
-.profile-img {
-    position: relative;
-    width: 150px; /* Aap ki tasveer ka size */
-    height: 150px;
-    border-radius: 50%; /* Is se aap ki pic round (gool) ho jaye gi */
-    object-fit: cover;
-    border: 4px solid #ffffff; /* Gool pic ke sath white border */
-    z-index: 2; /* Is se aap ki pic logo ke upar/aage show hogi */
-}
-    border-radius: 50%; /* Agar round karni ho */
+/* Aap ki original Profile Picture ki setting */
+img.profile-img {
+    position: relative !important;
+    width: 140px !important; /* Tasveer ka size */
+    height: 140px !important;
+    border-radius: 50% !important; /* Gool karne ke liye */
+    object-fit: cover !important;
+    border: 4px solid #ffffff !important; /* White border */
+    z-index: 2 !important; /* Is se pic har haal me logo ke upar aaye gi */
+    display: inline-block !important;
 }
 
     </style>
